@@ -14,7 +14,7 @@ namespace ComicBookGallery.Controllers
 
         public ActionResult Detail(int? id)
         {
-            if (id == null) return HttpNotFound("Please specify issue number");
+            if (id == null) return HttpNotFound();
             return View(m_ComicBookRepository.GetComicBookById(id.Value));
 
             //if (DateTime.Today.DayOfWeek == DayOfWeek.Thursday)
