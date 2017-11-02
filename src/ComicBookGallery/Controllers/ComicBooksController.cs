@@ -5,14 +5,17 @@ namespace ComicBookGallery.Controllers
 {
     public class ComicBooksController : Controller
     {
-        //public ActionResult Detail()
-        //{
-        //    return View(new ComicBookRepository().GetComicBook(0));
-        //}
+        private readonly ComicBookRepository m_ComicBookRepository = new ComicBookRepository();
+
+        public ActionResult Index()
+        {
+            return View(new ComicBookRepository().GetComicBooks());
+        }
 
         public ActionResult Detail(int? id)
         {
-            return View(new ComicBookRepository().GetComicBook(id ?? 0));
+            if (id == null) return HttpNotFound("Please specify issue number");
+            return View(m_ComicBookRepository.GetComicBookById(id.Value));
 
             //if (DateTime.Today.DayOfWeek == DayOfWeek.Thursday)
             //    return Redirect("/");
