@@ -18,6 +18,11 @@ namespace ComicBookGallery
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            //routes.MapRoute(
+            //    name: "Details",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "ComicBook", action = "Details", id = UrlParameter.Optional }
+            //);
         }
     }
 }
